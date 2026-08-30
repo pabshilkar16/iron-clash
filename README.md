@@ -23,7 +23,7 @@ Then visit <http://localhost:8000>.
 | Light / heavy punch | J / K |
 | Light / heavy kick | U / I |
 | Guard | L |
-| Signature attack | O |
+| Signature attack / Rex's **BEAST RUSH** | O |
 | Throw | J + U |
 | Pause | Escape |
 

@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no" />
+  <meta name="theme-color" content="#090a0c" />
+  <title>IRON CLASH — Underground Combat</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main id="app">
+    <canvas id="game" width="1280" height="720" aria-label="Iron Clash fighting arena"></canvas>
+
+    <section id="menu" class="screen active">
+      <div class="hero-copy">
+        <p class="eyebrow">UNDERGROUND COMBAT LEAGUE</p>
+        <h1>IRON <span>CLASH</span></h1>
+        <p class="tagline">Every strike has weight. Every choice has consequence.</p>
+        <div class="menu-buttons">
+          <button id="playBtn" class="primary">PLAY <b>→</b></button>
+          <button id="selectBtn">CHARACTER SELECT</button>
+          <button id="howBtn">HOW TO PLAY</button>
+        </div>
+      </div>
+      <div class="menu-fighter" aria-hidden="true"><div class="fighter-glow"></div><div class="fighter-shape"></div></div>
+      <footer><span>v1.0 // NO MERCY</span><button class="sound-btn">◖ SOUND ON</button></footer>
+    </section>
+
+    <section id="select" class="screen panel-screen">
+      <header><button class="back">← BACK</button><div><p class="eyebrow">CHOOSE YOUR FIGHTER</p><h2>SELECT COMBATANT</h2></div><div></div></header>
+      <div id="fighterCards" class="fighter-cards"></div>
+      <div class="select-actions"><label>CPU DIFFICULTY <select id="difficulty"><option>Easy</option><option selected>Normal</option><option>Hard</option></select></label><button id="beginBtn" class="primary">ENTER THE ARENA</button></div>
+    </section>
+
+    <section id="how" class="screen panel-screen">
+      <header><button class="back">← BACK</button><div><p class="eyebrow">FIGHTER BRIEFING</p><h2>HOW TO PLAY</h2></div><div></div></header>
+      <div class="how-grid">
+        <article><h3>MOVEMENT</h3><div class="keyrow"><kbd>A</kbd><kbd>D</kbd><span>Move / double-tap to dash</span></div><div class="keyrow"><kbd>W</kbd><span>Jump</span></div><div class="keyrow"><kbd>S</kbd><span>Crouch</span></div><div class="keyrow"><kbd>L</kbd><span>Guard / crouch guard</span></div></article>
+        <article><h3>STRIKES</h3><div class="keyrow"><kbd>J</kbd><span>Light punch</span></div><div class="keyrow"><kbd>K</kbd><span>Heavy punch</span></div><div class="keyrow"><kbd>U</kbd><span>Light kick</span></div><div class="keyrow"><kbd>I</kbd><span>Heavy kick</span></div><div class="keyrow"><kbd>O</kbd><span>Special / Finisher</span></div></article>
+        <article><h3>COMBOS</h3><p><b>J · J · K</b> — Breaker cross</p><p><b>U · I</b> — High-low kick</p><p><b>J · I · O</b> — Signature chain</p><p class="tip">Guard at the moment of impact to parry. Press J+U near an opponent to throw.</p></article>
+      </div>
+      <button class="back primary centered">GOT IT</button>
+    </section>
+
+    <section id="hud" class="hud hidden">
+      <div class="status player-status"><div class="name"><b id="pName">REX</b><span>PLAYER 1</span></div><div class="health"><i id="pHealth"></i></div><div class="resource"><i id="pStamina"></i></div><div class="special"><i id="pSpecial"></i></div></div>
+      <div class="round-info"><div class="pips" id="roundPips">◇ ◇</div><b id="timer">90</b><span>ROUND <i id="roundNo">1</i></span></div>
+      <div class="status cpu-status"><div class="name"><b id="cName">KAI</b><span>CPU</span></div><div class="health"><i id="cHealth"></i></div><div class="resource"><i id="cStamina"></i></div><div class="special"><i id="cSpecial"></i></div></div>
+      <button id="pauseBtn" aria-label="Pause">Ⅱ</button><div id="combo" class="combo"></div><div id="announcement" class="announcement"></div>
+    </section>
+
+    <section id="pause" class="modal hidden"><div class="modal-card"><p class="eyebrow">FIGHT SUSPENDED</p><h2>PAUSED</h2><button id="resumeBtn" class="primary">RESUME</button><button id="restartBtn">RESTART MATCH</button><button class="sound-btn">SOUND ON</button><button class="main-menu">MAIN MENU</button></div></section>
+    <section id="gameover" class="modal hidden"><div class="modal-card"><p class="eyebrow">MATCH COMPLETE</p><h2 id="winner">REX WINS</h2><p id="score">ROUNDS 2 — 0</p><button id="againBtn" class="primary">PLAY AGAIN</button><button class="main-menu">MAIN MENU</button></div></section>
+
+    <div id="touch" class="touch hidden"><div class="touch-left"><button data-key="a">◀</button><button data-key="s">▼</button><button data-key="d">▶</button><button data-key="w">▲</button></div><div class="touch-right"><button data-key="l" class="guard">G</button><button data-key="j">P</button><button data-key="u">K</button><button data-key="o" class="special-key">S</button></div></div>
+  </main>
+  <script src="game.js"></script>
+</body>
+</html>

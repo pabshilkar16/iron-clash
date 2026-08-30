@@ -28,4 +28,6 @@ Then visit <http://localhost:8000>.
 | Pause | Escape |
 
 Touch controls appear automatically on mobile devices. All audio is synthesized
-in the browser with the Web Audio API; the game contains no external game assets.
+in the browser with the Web Audio API. Rex's in-game animations are transparent
+runtime canvases cropped from the supplied character artwork using text-based
+frame coordinates in `game.js`; no generated binary sprite assets are required.
